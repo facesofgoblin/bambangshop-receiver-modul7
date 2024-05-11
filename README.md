@@ -59,14 +59,14 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   Open another new terminal, edit `ROCKET_PORT` in `.env` to `8003`, then execute `cargo run`.
 
 ## Mandatory Checklists (Subscriber)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
+-   [v] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [v] Commit: `Create Notification model struct.`
+    -   [v] Commit: `Create SubscriberRequest model struct.`
+    -   [v] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [v] Commit: `Implement add function in Notification repository.`
+    -   [v] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [v] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,5 +85,7 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. We use Read Write Lock instead of Mutex because RwLock allows multiple threads to read a variable simultaneously, while Mutex only permits one thread at a time. Since the Notifications vector will be read by multiple threads without writing, RwLock is more suitable for this scenario. Using Mutex would prevent simultaneous reads.
 
+2. lazy_static converts a variable into a singleton, meaning there's only one instance of it in the program. Rust's static variables are immutable by default, ensuring thread safety in multi-threaded environments, unlike in Java where data can be changed.
 #### Reflection Subscriber-2
